@@ -14,43 +14,54 @@
     <style>
         body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
         #content { max-width: 600px; margin: auto; }
+        .nav { background: #007BFF; padding: 10px; }
+        .nav a { color: white; text-decoration: none; margin: 0 15px; font-size: 18px; }
         .lang-btn { cursor: pointer; margin: 10px; padding: 5px 10px; background: #007BFF; color: white; border: none; }
         .hidden { display: none; }
         img { max-width: 100%; height: auto; margin: 20px 0; }
     </style>
 </head>
 <body>
-    <h1>SimCash – Passives Einkommen mit SMS</h1>
+    <div class="nav">
+        <a href="#" onclick="showPage('home')">Home</a>
+        <a href="#" onclick="showPage('guide')">Anleitung</a>
+    </div>
+    
     <button class="lang-btn" onclick="switchLang('de')">Deutsch</button>
     <button class="lang-btn" onclick="switchLang('en')">English</button>
     
     <div id="content">
-        <img src="homepage.png" alt="SimCash Infografik">
-        <div id="de">
-            <p>Nutze ungenutzte SMS-Kapazitäten und verdiene Geld mit SimCash.</p>
-            <p>So funktioniert es:</p>
-            <ol>
-                <li>Registriere dich bei SimCash.</li>
-                <li>Verbinde deine SIM-Karte mit der App.</li>
-                <li>Lehne dich zurück und verdiene Geld passiv durch SMS-Versand.</li>
-            </ol>
-            <p><strong>Häufige Fragen:</strong></p>
-            <p><strong>Ist SimCash sicher?</strong> – Ja, die App hat Tausende Nutzer weltweit und zahlt regelmäßig aus.</p>
-            <p><strong>Wie erfolgt die Auszahlung?</strong> – Per Banküberweisung, PayPal oder Kryptowährungen.</p>
-            <a href="https://tinyurl.com/ykh4vm56">Jetzt registrieren</a>
+        <div id="home">
+            <h1>SimCash – Passives Einkommen mit SMS</h1>
+            <img src="homepage.png" alt="SimCash Infografik">
+            <div id="de">
+                <p>Nutze ungenutzte SMS-Kapazitäten und verdiene Geld mit SimCash.</p>
+                <a href="https://tinyurl.com/ykh4vm56">Jetzt registrieren</a>
+            </div>
+            <div id="en" class="hidden">
+                <p>Use unused SMS capacity and earn money with SimCash.</p>
+                <a href="https://tinyurl.com/ykh4vm56">Register now</a>
+            </div>
         </div>
-        <div id="en" class="hidden">
-            <p>Use unused SMS capacity and earn money with SimCash.</p>
-            <p>How it works:</p>
-            <ol>
-                <li>Sign up for SimCash.</li>
-                <li>Connect your SIM card to the app.</li>
-                <li>Relax and earn passive income through SMS sending.</li>
-            </ol>
-            <p><strong>Frequently Asked Questions:</strong></p>
-            <p><strong>Is SimCash safe?</strong> – Yes, the app has thousands of users worldwide and pays out regularly.</p>
-            <p><strong>How do payouts work?</strong> – Via bank transfer, PayPal, or cryptocurrencies.</p>
-            <a href="https://tinyurl.com/ykh4vm56">Register now</a>
+        
+        <div id="guide" class="hidden">
+            <h1>Anleitung</h1>
+            <div id="de-guide">
+                <p>So funktioniert es:</p>
+                <ol>
+                    <li>Registriere dich bei SimCash.</li>
+                    <li>Verbinde deine SIM-Karte mit der App.</li>
+                    <li>Verdiene passiv Geld durch den SMS-Versand.</li>
+                </ol>
+            </div>
+            <div id="en-guide" class="hidden">
+                <p>How it works:</p>
+                <ol>
+                    <li>Sign up for SimCash.</li>
+                    <li>Connect your SIM card to the app.</li>
+                    <li>Earn passive income through SMS sending.</li>
+                </ol>
+            </div>
         </div>
     </div>
     
@@ -58,6 +69,13 @@
         function switchLang(lang) {
             document.getElementById('de').classList.toggle('hidden', lang !== 'de');
             document.getElementById('en').classList.toggle('hidden', lang !== 'en');
+            document.getElementById('de-guide').classList.toggle('hidden', lang !== 'de');
+            document.getElementById('en-guide').classList.toggle('hidden', lang !== 'en');
+        }
+        
+        function showPage(page) {
+            document.getElementById('home').classList.toggle('hidden', page !== 'home');
+            document.getElementById('guide').classList.toggle('hidden', page !== 'guide');
         }
     </script>
 </body>
